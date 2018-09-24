@@ -3,7 +3,7 @@ function iPS = IPSA(rsfMRI_2D)
 %
 % Input:     rsfMRI_2D,      2D narrow band-pass filtered fMRI data (time-points x nodes, or T x N).
 %
-% Output:    ISPA,           3D IPSA (NxNxT) - NB! high storage capacity needed with many nodes and/or time-points.
+% Output:    iPS,           3D IPSA (NxNxT) - NB! high storage capacity needed with many nodes and/or time-points.
 %
 % Reference: Pedersen M, Omidvarnia A, Zalesky A, & Jackson G.J. 2018. NeuroImage. 181:85-94.
 
