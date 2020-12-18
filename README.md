@@ -1,2 +1,2 @@
-# Dynamic_brain_connectivity_analysis
-This repository will cover our developed algorithms and techniques for dynamic brain connectivity analysis.
+# Analysis of functional brain connectivity and fMRI time series
+This repository includes the code implementations of dynamic functional brain connectivity analysis and temporal complexity analysis of resting-state fMRI.
