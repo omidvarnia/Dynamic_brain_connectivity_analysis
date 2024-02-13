@@ -1,0 +1,220 @@
+# This YAML configuration file contains settings for different stages of
+# analysis in the Communications Biology study by Omidvarnia et al. (2024)
+# It includes settings for feature extraction, prediction models, job 
+# scheduler configurations, paths to various folders and files, and software
+# settings for different computing environments.
+#
+# Please ensure that all settings are properly configured according to the
+# requirements of your analysis pipeline before running the scripts.
+#
+# Written by Amir Omidvarnia
+# Email: amir.omidvarnia@gmail.com
+
+analysis_name:
+  atlas_name:
+    schaefer
+  feature_extraction:
+    feature_extraction
+  prediction:
+    prediction
+N_subj_males_or_females: 10000
+
+with:
+  - /home/aomidvarnia/GIT_repositories/JuImaGen/merged_toolkit
+  - /p/project/comanukb/aomidvarnia/JuImaGen/merged_toolkit
+
+htcondor_settings:
+  initial_dir: /home/aomidvarnia
+  mail_user: a.omidvarnia@fz-juelich.de
+  request_cpus: 1
+  request_memory: 40
+  request_disk: 100
+
+slurm_settings:
+  miniconda3_path: /p/project/comanukb/aomidvarnia/miniconda3
+  mail_user: a.omidvarnia@fz-juelich.de
+  account: comanukb
+  ntasks_per_node: 64
+  cpus_per_task: 1
+  nodes: 1
+  max_time: '24:00:00'
+
+juseless_paths:
+  main_folder: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript
+  codes_folder: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes
+  fsl_templates_folder: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/FSL_templates
+  logs_folder: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/htcondor_logs
+  parcel_atlas_folder: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/parcellation_atlases
+  fALFF_db_folder: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/UKB_fALFF_db
+  fALFF_db_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/UKB_fALFF_db
+  fALFF_db_folder_glasser: /data/group/appliedml/fraimondo/for_amir/
+  submit_files_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/feature_extraction_schaefer_submit_files
+  submit_files_folder_glasser: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/feature_extraction_glasser_submit_files
+  npzfiles_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/feature_extraction_schaefer_npzfiles
+  npzfiles_folder_glasser: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/feature_extraction_glasser_npzfiles
+  glasser_falff_lcor_gcor_lcor_storage: /data/group/appliedml/fraimondo/for_amir
+  parcellated_data_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/Data/UKB_schaefer_parcellated
+  parcellated_data_folder_glasser: /data/project/SPP2041/results/aomidvarnia/Data/UKB_glasser_parcellated
+  prediction_results_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/prediction_schaefer_results
+  prediction_results_folder_glasser: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/prediction_glasser_results
+  prediction_submit_files_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/prediction_schaefer_submit_files
+  prediction_submit_files_folder_glasser: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/prediction_glasser_submit_files
+  fingerprinting_results_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/fingerprinting_schaefer_results
+  fingerprinting_results_folder_glasser: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/fingerprinting_glasser_results
+  fingerprinting_submit_files_folder_schaefer: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/fingerprinting_schaefer_submit_files
+  fingerprinting_submit_files_folder_glasser: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/fingerprinting_glasser_submit_files
+  subjects_list_file: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/data/subs_with_filtered_func_data_clean_and_movement_and_warp_data_261121.mat
+  executable_file_feature_extraction: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/executables/fmri_feature_extraction_executable.py
+  executable_file_prediction: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/analysis_steps/Step5_preform_prediction_juseless.py
+  executable_file_fingerprinting: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/analysis_steps/Step12_fingerprinting_analysis.py
+  executable_file_prediction_tsnr0: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/analysis_steps/Step5_preform_prediction_juseless_tsnr0.py
+  executable_file_prediction_tsnrAll: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/analysis_steps/Step5_preform_prediction_juseless_tsnrAll.py
+  executable_file_check_tsnr_and_roi: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/explore/Step1_check_tsnr_and_nroi_relationship.py
+  executable_file_check_tsnr_and_roi_B: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/explore/Step1B_check_tsnr_and_nroi_relationship.py
+  executable_file_prediction_ConfOnly: /home/aomidvarnia/GIT_repositories/Comm_Biol_manuscript/analysis_codes/analysis_steps/Step8_perform_prediction_ConfoundsOnly_juseless.py
+  TIV_filename: /data/project/SPP2041/results/aomidvarnia/UKB_analysis_manuscript/UKB_TIV_file/cat_m0wp1/stats/TIV_Schaefer2018_400Parcels_17Networks_order.npy
+
+jureca_paths:
+  main_folder: /p/project/comanukb/aomidvarnia/JuImaGen
+  codes_folder: /p/project/comanukb/aomidvarnia/JuImaGen/amir_codes/RangeEn_analysis_jureca
+  fsl_templates_folder: /p/project/comanukb/aomidvarnia/JuImaGen/FSL_templates
+  parcel_atlas_folder:  /p/project/comanukb/aomidvarnia/JuImaGen/parcellation_atlases
+  fALFF_db_folder: /p/project/comanukb/aomidvarnia/JuImaGen/UKB_fALFF_db
+  fALFF_db_folder_schaefer: /p/project/comanukb/aomidvarnia/JuImaGen/UKB_fALFF_db/fALFF_GCOR_LCOR.db
+  slurm_submit_folder: /p/project/comanukb/aomidvarnia/JuImaGen/complexity_slurm_files
+  npzfiles_folder: /p/project/comanukb/aomidvarnia/JuImaGen/complexity_npzfiles
+  logs_folder: /p/project/comanukb/aomidvarnia/JuImaGen/complexity_slurm_logs
+  subjects_list_file: /p/home/jusers/omidvarnia1/jureca/GIT_repositories/Comm_Biol_manuscript/analysis_codes/data/subs_with_filtered_func_data_clean_and_movement_and_warp_data_261121.mat
+  executable_file_schaefer: /p/project/comanukb/aomidvarnia/JuImaGen/amir_codes/RangeEn_analysis_jureca/fmri_feature_extraction_executable_schaefer.py
+  miniconda3_path: /p/project/comanukb/aomidvarnia/miniconda3
+
+juseless_software_settings:
+  datalad_database_source: ria+http://ukb.ds.inm7.de#~bids
+  CAT_database_source: ria+http://ukb.ds.inm7.de#~cat_m0wp1
+  fsl_params:
+    fsl_applywarp_interp: spline
+    my_fslmaths: fslmaths
+    my_flirt: flirt
+    my_fslsplit: fslsplit
+    my_fslmerge: fslmerge
+    my_applywarp: applywarp
+
+jureca_software_settings:
+  datalad_database_source: ria+file:///p/scratch/jinm72/dataladstores/ukb_raw#~bids
+  fsl_params:
+    fsl_applywarp_interp: spline
+    my_fslmaths: 'singularity exec /p/project/comanukb/aomidvarnia/software/singularity-fsl_6.0.1.sif fslmaths'
+    my_flirt: 'singularity exec /p/project/comanukb/aomidvarnia/software/singularity-fsl_6.0.1.sif flirt'
+    my_fslsplit: 'singularity exec /p/project/comanukb/aomidvarnia/software/singularity-fsl_6.0.1.sif fslsplit'
+    my_fslmerge: 'singularity exec /p/project/comanukb/aomidvarnia/software/singularity-fsl_6.0.1.sif fslmerge'
+    my_applywarp: 'singularity exec /p/project/comanukb/aomidvarnia/software/singularity-fsl_6.0.1.sif applywarp'
+
+feature_extraction:
+  subjects_span:
+    subj_start: 0
+    subj_end: 20000
+    batch_size: 500
+  brain_atlas_schaefer:
+    resolution_mm: 2
+    N_network: 17
+    N_ROI: 400
+  brain_atlas_glasser:
+    resolution_mm: null
+    N_network: null
+    N_ROI: 360
+  entropy_params:
+    N_r: 10
+    emb_dim: 2
+    r_MSE: 0.5
+    N_scale: 10
+
+prediction:
+  subjects_span:
+    batch_subjects: 
+      [0, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1100, 1150, 1200, 1250, 1300, 1350, 1400, 1450, 1500, 1550, 1600, 1650, 1700, 1750, 1800, 1850, 1900, 1950, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500, 14000, 14500, 15000, 15500, 16000, 16500, 17000, 17500, 18000, 18500, 19000, 19500, 20000]
+  UKB_tsv_filename: ukb45132.tsv
+  ukbb_parser_DF_codes:
+    - '20016' # Fluid intelligence score (Reasoning)
+    - '20023' # Reaction time
+    - '399' # Visual memory
+    - '20240' # Numeric memory
+    - '103000' # Meat consumer
+    - '103140' # Fish consumer
+    - '25005' # GMV, normalized for head size
+  target_names: # Column names in the UKb tsv file
+    - '20016-2.0' # FI, Instance 2 : Imaging visit (2014+)
+    - '20023-2.0' # RT, Instance 2 : Imaging visit (2014+)
+    - '399-2.2' # Visual memory, Instance 2 : Imaging visit (2014+)
+    - '20240-0.0' # Numeric memory
+    - '103140-4.0' # Fish con, On-line cycle 4, April to June 2012
+    - 'TIV' # Total intracranial volume
+    - 'AgeAtScan' # high number
+    - '31-0.0' # Sex-0.0
+  target_labels:
+    - FI_score
+    - reaction_time
+    - visual_memory
+    - numeric_memory
+    - fish_consumer
+    - TIV
+    - AgeAtScan
+    - Sex
+  problem_types:
+    - regression
+    - regression
+    - regression
+    - regression
+    - binary_classification
+    - regression
+    - regression
+    - binary_classification
+  feature_names:
+    - tSNR_fMRI
+    - RangeEnB_AUC_fMRI
+    - MSE_AUC_fMRI
+    - wPE_fMRI
+    - RSA_hurst_fMRI
+    - fALFF_fMRI
+    - LCOR_fMRI
+    - GCOR_fMRI
+    - eig_cent
+    - wCC
+  motion_types:
+    - rmsrel
+    - rmsabs
+  thresh_vec:
+    [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6] # tSNR thresholds
+  model_grid:
+    rf:
+      model_name:
+        rf # ref of default params: https://cran.r-project.org/web/packages/randomForest/randomForest.pdf
+      rf__n_estimators: # ntree in R
+        500
+      rf__max_depth:
+        null
+      rf__min_samples_leaf:
+        1
+      rf__min_samples_split:
+        2
+      rf__max_samples: # sampsize in R
+        0.632
+      rf__max_leaf_nodes: # maxnodes in R
+        null
+      rf__bootstrap:
+        true
+    hueristic_svr:
+      model_name:
+        LinearSVRHeuristicC_zscore
+    hueristic_svc:
+      model_name:
+        LinearSVCHeuristicC_zscore
+    ridge_regressor:
+      model_name:
+        ridge
+      ridge__alpha:
+        [0, 0.00001, 0.0001, 0.001, 5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 100, 150, 200, 300, 500, 700, 1000, 5000, 10000, 50000, 100000, 500000, 1000000]
+    ridge_classifier:
+      model_name:
+        ridge
+      ridge__alpha:
+        [0, 0.00001, 0.0001, 0.001, 0.004, 0.007, 0.01, 0.04, 0.07, 0.1, 0.4, 0.7, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 100, 150, 200, 300, 500, 700, 1000, 5000, 10000, 50000, 100000, 500000, 1000000]
